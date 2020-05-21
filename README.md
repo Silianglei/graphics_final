@@ -1,4 +1,4 @@
-# Graphics Final Project
+# Graphics Final Project: Proposal
 
 ### Siliang Lei (Period 4)
 
