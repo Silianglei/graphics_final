@@ -2,7 +2,7 @@
 
 ### Siliang Lei (Period 4)
 
-## Features We Want To Implement
+## Features To Implement
 1. light
     - Add a light to the symbol table
     - When calculating diffuse and specular: loop through all the lights.
