@@ -15,3 +15,7 @@
 5. save_coordinate_system
     - Save a copy of the top of the stack to the symbol table
     - use this coordinate system when drawing shapes (extra argument required)
+## Features to Implement If I Have Time
+1. New primitive shapes (pyramid)
+2. Anti-aliasing / Super-sampling
+    - Reduce pixelated edges by calculating a higher resolution version of the image then reducing it to the intended size
