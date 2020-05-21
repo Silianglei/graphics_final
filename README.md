@@ -12,9 +12,6 @@
     - Save current knob values to a list
 4. tween
     - Produce an animation by going between two knob lists
-5. shading
-    - Use different shading techniques / calculating I more or less frequently.
-    - A hash tables structure can be very helpful for dealing with vertex normals. If you are woking in c, check out uthash.
-6. save_coordinate_system
+5. save_coordinate_system
     - Save a copy of the top of the stack to the symbol table
     - use this coordinate system when drawing shapes (extra argument required)
