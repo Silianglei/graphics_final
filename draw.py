@@ -243,6 +243,19 @@ def add_torus(polygons, cx, cy, cz, r0, r1, step ):
                         points[p1][1],
                         points[p1][2] )
 
+def add_cone(polygons, cx, cy, cz, r, height, step):
+
+    i = 0
+    while i <= step:
+        t = float(i)/step
+        x1 = r * math.cos(2*math.pi * t) + cx
+        z1 = r * math.sin(2*math.pi * t) + cz
+        i+=1
+        t = float(i)/step
+        x2 = r * math.cos(2*math.pi * t) + cx
+        z2 = r * math.sin(2*math.pi * t) + cz
+        add_polygon(polygons, cx, cy, cz, x1, cy-height, z1, x2, cy-height, z2)
+        add_polygon(polygons, x1, cy-height, z1, cx, cy-height, cz, x2, cy-height, z2)
 
 def generate_torus( cx, cy, cz, r0, r1, step ):
     points = []
