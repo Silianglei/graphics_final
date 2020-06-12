@@ -257,6 +257,9 @@ def add_cone(polygons, cx, cy, cz, r, height, step):
         add_polygon(polygons, cx, cy, cz, x2, cy-height, z2, x1, cy-height, z1)
         add_polygon(polygons, x1, cy-height, z1, x2, cy-height, z2, cx, cy-height, cz)
 
+def add_pyramid(polygons, cx, cy, cz, side, height):
+    add_cone(polygons, cx, cy, cz, side/2, height, 4)
+    
 def generate_torus( cx, cy, cz, r0, r1, step ):
     points = []
     rot_start = 0
