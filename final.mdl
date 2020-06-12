@@ -12,46 +12,102 @@ constants spot_white 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0
 constants even_white 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5
 constants bluish 0.2 0.4 0.2 0.3 0.3 0.6 0.4 0.9 0.4
 constants greenish 0.2 0.2 0.4 0.3 0.6 0.3 0.4 0.4 0.9
-constants matte_white 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0
 constants dull_green 0.1 0 0.2 0.9 0.4 0.3 0.3 0 0
 constants shiny_blue 0 0 0 0 0 0 0.7 0.5 0.9
 constants dull_orange 0.8 0.8 0.8 0.1 0.4 0.2 0 0 0
+
+
+push
+move 250 250 0
+
+push
+rotate x 30
+torus dull_yellow -10 0 0 20 80
+pop
+
+push
+move -20 100 0
+rotate y 360 r1
+
+push
+box shiny_teal 0 0 0 50 150 25
+pop
+
+push
+move 0 -150 0
+rotate z -50 k0
+box shiny_purple 0 0 0 25 80 20
+pop
+
+push
+move 25 -150 0
+rotate z 50 k0
+box shiny_purple 0 0 0 25 80 20
+pop
+
+push
+move 0 -10 0
+rotate z -110 k0
+box shiny_purple 0 0 0 25 80 20
+pop
+
+push
+move 50 -35 0
+rotate z 110 k0
+box shiny_purple 0 0 0 25 80 20
+pop
+
+push
+move 25 25 0
+sphere shiny_teal 0 0 0 25
+pop
+
+pop
+pop
 
 //cylinder
 push
 move 100 0 0
 move 0 500 0 b1
-//rotate y 360 spinny
-//rotate z 360 spinny
-cone shiny_blue 0 0 0 30 75
+rotate y 360 spinny
+rotate z 360 spinny
+cylinder shiny_blue 0 0 0 30 75
+cone shiny_teal 0 50 0 30 50
 pop
 
-//cone
-push
-move 250 500 0
-move 0 -500 0 b2
-//rotate y 360 spinny
-//rotate z 360 spinny
-cylinder matte_white 0 0 0 30 75
-pop
 
-//pyramid
+//cylinder 2
 push
 move 425 0 0
-move 0 500 0 b1
-//rotate y 360 spinny
-//rotate z 360 spinny
-pyramid shiny_teal 0 0 0 50 75
+move 0 500 0 b2
+rotate y 360 spinny
+rotate z 360 spinny
+cylinder shiny_blue 0 0 0 30 75
+cone shiny_teal 0 50 0 30 50
 pop
 
-//knobs
-vary b1 0 33 0 1
-vary b1 34 49 1 .5
-//vary b1 50 74 .5 .5
 
-vary b2 0 33 0 1
-vary b2 34 49 1 .5
-//vary b2 50 74 .5 .5
+set spinny 0
+set r1 0
+set k0 0
+set b1 0
+set b2 1
+save_knobs l1
 
-//vary spinny 0 49 0 0
-//vary spinny 50 74 0 1
+
+set spinny .5
+set r1 .5
+set k0 1
+set b1 1
+set b2 0
+save_knobs l2
+
+set spinny 1
+set r1 1
+set k0 0
+set b1 0
+set b2 1
+save_knobs l3
+
+tween 0 24 l1 l2
+tween 25 49 l2 l3
