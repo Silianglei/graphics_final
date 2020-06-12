@@ -242,16 +242,33 @@ def add_torus(polygons, cx, cy, cz, r0, r1, step ):
                         points[p1][0],
                         points[p1][1],
                         points[p1][2] )
+def add_cylinder(polygons, cx, cy, cz, r, height, radius):
+    i = 0
+    while i <= radius:
+        t = float(i)/radius
+        x1 = r * math.cos(2*math.pi * t) + cx
+        z1 = r * math.sin(2*math.pi * t) + cz
 
-def add_cone(polygons, cx, cy, cz, r, height, step):
+        i+=1
+        t = float(i)/radius
+
+        x2 = r * math.cos(2*math.pi * t) + cx
+        z2 = r * math.sin(2*math.pi * t) + cz
+
+        add_polygon(polygons, x1, cy, z1, x2, cy-height, z2, x1, cy-height, z1)
+        add_polygon(polygons, x2, cy-height, z2, x1, cy, z1, x2, cy, z2)
+        add_polygon(polygons, x1, cy-height, z1, x2, cy-height, z2, cx, cy-height, cz)
+        add_polygon(polygons, x1, cy, z1, cx, cy, cz, x2, cy, z2)
+
+def add_cone(polygons, cx, cy, cz, r, height, radius):
 
     i = 0
-    while i <= step:
-        t = float(i)/step
+    while i <= radius:
+        t = float(i)/radius
         x1 = r * math.cos(2*math.pi * t) + cx
         z1 = r * math.sin(2*math.pi * t) + cz
         i+=1
-        t = float(i)/step
+        t = float(i)/radius
         x2 = r * math.cos(2*math.pi * t) + cx
         z2 = r * math.sin(2*math.pi * t) + cz
         add_polygon(polygons, cx, cy, cz, x2, cy-height, z2, x1, cy-height, z1)
@@ -259,7 +276,9 @@ def add_cone(polygons, cx, cy, cz, r, height, step):
 
 def add_pyramid(polygons, cx, cy, cz, side, height):
     add_cone(polygons, cx, cy, cz, side/2, height, 4)
-    
+
+
+
 def generate_torus( cx, cy, cz, r0, r1, step ):
     points = []
     rot_start = 0

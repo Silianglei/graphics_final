@@ -6,7 +6,7 @@ move 250 250 0
 scale 2 2 2 bigenator
 rotate y 360 spinny
 rotate z 360 spinny
-pyramid shiny_purple 0 0 0 75 125
+cylinder shiny_purple 0 0 0 75 125
 set spinny 0
 set bigenator 0
 save_knobs list1
